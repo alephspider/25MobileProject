@@ -9,6 +9,11 @@ import androidx.fragment.app.Fragment
 
 class StartFragment : Fragment() {
 
+    companion object {
+        @JvmStatic
+        fun newInstance() = StartFragment() // 간단한 newInstance
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
