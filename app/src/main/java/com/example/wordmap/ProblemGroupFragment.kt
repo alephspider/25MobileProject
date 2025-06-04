@@ -48,7 +48,7 @@ class ProblemGroupFragment : Fragment() {
 
         // 현재 문제 번호 (0부터 시작한다고 가정)
         val currentProblemNumber = mainActivity?.problemCount ?: startIndex
-        currentWord = "단어 ${currentProblemNumber + 1}" // 실제 단어 데이터로 대체
+        currentWord = "example word ${currentProblemNumber + 1}" // 실제 단어 데이터로 대체
         binding.wordTextView.text = currentWord
 
         setupProblems(currentProblemNumber) // 현재 문제 번호(또는 인덱스) 전달
@@ -67,7 +67,7 @@ class ProblemGroupFragment : Fragment() {
         )
         val random = Random()
         val correctAnswerButtonId = optionButtonIds[random.nextInt(optionButtonIds.size)]
-        val sentenceMeaning = "문장 의미 ${currentProblemIndex + 1}" // 실제 의미 데이터로 대체
+        val sentenceMeaning = "word ${currentProblemIndex + 1} sentence" // 실제 의미 데이터로 대체
 
         val listener = View.OnClickListener { view ->
             val clickedButton = view as Button
@@ -122,6 +122,7 @@ class ProblemGroupFragment : Fragment() {
                 // 옵션 버튼 등은 이미 checkAnswer에서 GONE 처리됨
                 if(activity.problemCount == 9) { // 정확히 마지막 문제를 푼 직후
                     binding.wordTextView.text = "모든 문제를 다 푸셨습니다!"
+                    binding.meaningTextView.visibility = View.GONE
                 } else { // 혹시 모를 다른 상황 (이미 10개를 넘겼을 경우)
                     binding.wordTextView.text = "모든 문제를 다 푸셨습니다!"
                 }
