@@ -43,7 +43,7 @@ class ProblemAiViewmodel : ViewModel() {
      * @param excludeWords 제외할 단어 목록 (선택 사항)
      */
     fun generateProblems(
-        wordCount: Int = 10, // 기본값으로 5개 문제 요청
+        wordCount: Int = 10,
         topic: String? = null,
         pos: String? = null,
         excludeWords: List<String>? = null

@@ -50,7 +50,6 @@ class ProblemGroupFragment : Fragment() {
         private const val ARG_START_INDEX = "start_index" // 이 인자는 AI가 문제를 가져오면 의미가 달라질 수 있음
         const val LAST_PROBLEM_DIRECTION = "마지막"
 
-        // newInstance는 유지하되, startIndex의 역할이 AI 문제 로딩 방식에 따라 달라질 수 있음을 인지
         fun newInstance(startIndex: Int): ProblemGroupFragment {
             val fragment = ProblemGroupFragment()
             val args = Bundle()

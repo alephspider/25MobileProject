@@ -4,7 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import android.graphics.Path // 복잡한 경로를 위해 필요할 수 있음
+import android.graphics.Path
 import android.graphics.PointF
 import android.util.AttributeSet
 import android.view.View
