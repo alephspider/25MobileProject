@@ -8,12 +8,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.wordmap.databinding.FragmentCompletionBinding
 
+/**
+ * 완료 화면을 표시하는 Fragment.
+ * PathDrawingView에서 구현한 로직을 가져와서 이미지를 사용자에게 보여준다.
+ */
+
+
 class CompletionFragment : Fragment() {
 
     private var _binding: FragmentCompletionBinding? = null
     private val binding get() = _binding!!
 
-    private var solvedProblems: ArrayList<SolvedProblemData>? = null
+    private var solvedProblems: ArrayList<SolvedProblemData>? = null // 이전에서 푼 문제를 저장하는 리스트
     private var mainActivity: MainActivity? = null // MainActivity 참조 추가
 
     companion object {
@@ -40,7 +46,6 @@ class CompletionFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            // ... (기존 코드 유지) ...
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
                 solvedProblems = it.getParcelableArrayList(ARG_SOLVED_PROBLEMS, SolvedProblemData::class.java)
             } else {
@@ -56,27 +61,31 @@ class CompletionFragment : Fragment() {
     ): View {
         _binding = FragmentCompletionBinding.inflate(inflater, container, false)
 
+        //PathDraingView에서 작성한 함수를 호출하여 최종 경로를 그림
         solvedProblems?.let {
             if (it.isNotEmpty()) {
                 binding.pathDrawingView.setSolvedProblems(it)
             } else {
                 binding.completionTitleTextView.text = "푼 문제가 없습니다."
-                binding.btnRestart.visibility = View.GONE // 푼 문제가 없으면 다시 시작 버튼도 숨김 (선택 사항)
+                binding.btnRestart.visibility = View.GONE
             }
         }
-
+        //다시시작 버튼 호출
         binding.btnRestart.setOnClickListener {
-            mainActivity?.restartProblems() // MainActivity의 메서드 호출
+            mainActivity?.restartProblems()
         }
 
         return binding.root
     }
 
-    override fun onDetach() { // onDetach에서 MainActivity 참조 해제
+
+    //메모리 누수 방지
+    override fun onDetach() {
         super.onDetach()
         mainActivity = null
     }
 
+    //메모리 누수 방지
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

@@ -1,5 +1,9 @@
 [versions]
+activityKtx = "1.10.1"
 agp = "8.9.1"
+firebaseBom = "33.15.0"
+firebaseVertexai = "16.5.0"
+gson = "2.10.1"
 kotlin = "2.0.21"
 coreKtx = "1.10.1"
 junit = "4.13.2"
@@ -11,7 +15,14 @@ activity = "1.8.0"
 constraintlayout = "2.1.4"
 
 [libraries]
+androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activityKtx" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+firebase-ai = { module = "com.google.firebase:firebase-ai" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-vertexai = { module = "com.google.firebase:firebase-vertexai", version.ref = "firebaseVertexai" }
+google-firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }

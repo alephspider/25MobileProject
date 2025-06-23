@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "342792199716",
-    "project_id": "wordmap-4b261",
-    "storage_bucket": "wordmap-4b261.firebasestorage.app"
+    "project_number": "8334439317",
+    "project_id": "wordmap-f5713",
+    "storage_bucket": "wordmap-f5713.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:342792199716:android:792e59428b0c2957af42b1",
+        "mobilesdk_app_id": "1:8334439317:android:a0256a6ac9959babe8bc9c",
         "android_client_info": {
           "package_name": "com.example.wordmap"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDThtzjLQ-YuSWfo2_-AqnzZvsK64YrO7M"
+          "current_key": "AIzaSyAlYHpJc7z7LLiOkmALXBWI6aOF0gO2U4o"
         }
       ],
       "services": {

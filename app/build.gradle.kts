@@ -58,11 +58,13 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     //firebase 의존성 추가 ai 사용
-    implementation(platform("com.google.firebase:firebase-bom:33.15.0"))
-    implementation("com.google.firebase:firebase-analytics")
-    implementation("com.google.firebase:firebase-vertexai")
-    implementation("com.google.code.gson:gson:2.10.1")
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.google.firebase.analytics)
+    implementation(libs.firebase.vertexai)
+    implementation(libs.gson)
 
-    implementation("androidx.activity:activity-ktx:1.8.0")
+    implementation("androidx.fragment:fragment-ktx:1.8.8")
+    implementation(libs.androidx.activity.ktx)
 
 }
