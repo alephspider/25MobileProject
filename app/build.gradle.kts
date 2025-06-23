@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("kotlin-parcelize")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -18,6 +19,14 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        //API 키 읽기
+        val geminiApiKey = project.findProperty("GEMINI_API_KEY") as? String ?: System.getenv("GEMINI_API_KEY") ?: ""
+        buildConfigField("String", "GEMINI_API_KEY", "\"$geminiApiKey\"")
+    }
+
+    buildFeatures{
+        buildConfig = true
     }
 
     buildTypes {
@@ -48,4 +57,12 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    //firebase 의존성 추가 ai 사용
+    implementation(platform("com.google.firebase:firebase-bom:33.15.0"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-vertexai")
+    implementation("com.google.code.gson:gson:2.10.1")
+
+    implementation("androidx.activity:activity-ktx:1.8.0")
+
 }
